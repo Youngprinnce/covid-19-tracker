@@ -10,6 +10,7 @@ body.light-mode {
 body.dark-mode {
   background-color: #10171d;
   color: #999;
+  transition: background-color 0.3s ease;
 }
 
 body.dark-mode .app__header > h1 {
