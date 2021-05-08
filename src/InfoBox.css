@@ -5,6 +5,14 @@
   cursor: pointer;
 }
 
+body.dark-mode .infoBox {
+  background-color: #011627;
+}
+
+body.dark-mode .infoBox .MuiCardContent-root  .MuiTypography-colorTextSecondary {
+  color: #fff !important;
+}
+
 .infoBox:not(:last-child) {
   margin-right: 15px;
 }

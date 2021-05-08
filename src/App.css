@@ -2,8 +2,50 @@
   margin: 0;
 }
 
-body {
+body.light-mode {
   background-color: #f5f6fa;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+body.dark-mode {
+  background-color: #10171d;
+  color: #999;
+}
+
+body.dark-mode .app__header > h1 {
+  color: #fff;
+}
+
+body.dark-mode .app__dayNight .MuiSvgIcon-root:last-child {
+  color: blue;
+}
+
+body.light-mode .app__dayNight .MuiSvgIcon-root:first-child {
+  color: #e4c423;
+}
+
+body.dark-mode .app__stats .MuiCard-root .MuiCardContent-root  .MuiTypography-colorTextSecondary {
+  color: #fff !important;
+}
+
+body.dark-mode .app__dropdown {
+  border: 1px solid #011627;
+}
+
+body.dark-mode .app__dropdown .MuiInputBase-root, .MuiSvgIcon-root {
+  color: #fff;
+}
+
+body.dark-mode .app__dropdown .MuiSvgIcon-root {
+  color: #fff;
+}
+
+body.dark-mode .app__right h3 {
+  color: #fff;
+}
+
+body.dark-mode .app__right {
+  background-color: #10171d;
 }
 
 .app {
@@ -12,11 +54,21 @@ body {
   padding: 20px;
 }
 
+.app__dropdown:focus{
+  border: none;
+}
+
 .app__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+}
+
+.app__dayNight{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .app__stats {
@@ -51,5 +103,9 @@ body {
 @media (max-width: 990px) {
   .app {
     flex-direction: column;
+  }
+
+  h1{
+    font-size: 20px;
   }
 }

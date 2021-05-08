@@ -6,7 +6,11 @@ import {
   Select,
   CardContent,
   Card,
+  Switch
 } from "@material-ui/core";
+import useDarkMode from 'use-dark-mode';
+import Brightness2OutlinedIcon from '@material-ui/icons/Brightness2Outlined';
+import WbSunnyOutlinedIcon from '@material-ui/icons/WbSunnyOutlined';
 import InfoBox from "./InfoBox";
 import Map from "./Map";
 import Table from "./Table";
@@ -25,6 +29,12 @@ function App() {
   const [mapCountries, setMapCountries] = useState([]);
   const [casesType, setCasesType] = useState("cases");
   const [isLoading, setLoading] = useState(false);
+  const darkMode = useDarkMode(false);
+  // const [checked, setChecked] = useState(false);
+
+  // const toggleChecked = () => {
+  //   setChecked((prev) => !prev);
+  // };
 
   useEffect(() => {
     fetch("https://disease.sh/v3/covid-19/all")
@@ -83,6 +93,11 @@ function App() {
       <div className="app__left">
         <div className="app__header">
           <h1>Covid-19 tracker</h1>
+          <div className='app__dayNight'>
+            <WbSunnyOutlinedIcon/>
+            <Switch color='default' checked={darkMode.value} onChange={darkMode.toggle} />
+            <Brightness2OutlinedIcon/>
+          </div>
           <FormControl className="app__dropdown">
             <Select
               variant="outlined"
