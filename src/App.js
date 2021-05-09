@@ -11,13 +11,12 @@ import {
 import useDarkMode from 'use-dark-mode';
 import Brightness2OutlinedIcon from '@material-ui/icons/Brightness2Outlined';
 import WbSunnyOutlinedIcon from '@material-ui/icons/WbSunnyOutlined';
-import InfoBox from "./InfoBox";
-import Map from "./Map";
-import Table from "./Table";
+import InfoBox from "./components/InfoBox/InfoBox";
+import Map from "./components/Map/Map";
+import Table from "./components/Table/Table";
 import { sortData, prettyPrintStat } from "./util";
-import LineGraph from "./LineGraph";
+import LineGraph from "./components/LineGraph/LineGraph";
 import "leaflet/dist/leaflet.css";
-import "./InfoBox.css";
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -30,11 +29,6 @@ function App() {
   const [casesType, setCasesType] = useState("cases");
   const [isLoading, setLoading] = useState(false);
   const darkMode = useDarkMode(false);
-  // const [checked, setChecked] = useState(false);
-
-  // const toggleChecked = () => {
-  //   setChecked((prev) => !prev);
-  // };
 
   useEffect(() => {
     fetch("https://disease.sh/v3/covid-19/all")
