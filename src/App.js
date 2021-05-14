@@ -27,7 +27,6 @@ function App() {
   const [zoom, setZoom] = useState(3);
   const [mapCountries, setMapCountries] = useState([]);
   const [casesType, setCasesType] = useState("cases");
-  const [isLoading, setLoading] = useState(false);
   const darkMode = useDarkMode(false);
 
   useEffect(() => {
@@ -59,7 +58,6 @@ function App() {
   }, []);
 
   const onCountryChange = async (event) => {
-    setLoading(true);
     const countryCode = event.target.value;
 
     setCountry(countryCode);
@@ -74,7 +72,6 @@ function App() {
       .then((data) => {
         setCountry(countryCode);
         setCountryInfo(data);
-        setLoading(false);
         countryCode === "worldwide"
           ? setMapCenter([34.80746, -40.4796])
           : setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
@@ -115,7 +112,6 @@ function App() {
             title="Coronavirus Cases"
             total={prettyPrintStat(countryInfo.cases)}
             cases={prettyPrintStat(countryInfo.todayCases)}
-            isloading={isLoading}
           />
           <InfoBox
             active={casesType === "recovered"}
@@ -124,7 +120,6 @@ function App() {
             title="Recovered"
             total={prettyPrintStat(countryInfo.recovered)}
             cases={prettyPrintStat(countryInfo.todayRecovered)}
-            isloading={isLoading}
           />
           <InfoBox
             isGrey
@@ -134,7 +129,6 @@ function App() {
             title="Deaths"
             total={prettyPrintStat(countryInfo.deaths)}
             cases={prettyPrintStat(countryInfo.todayDeaths)}
-            isloading={isLoading}
           />
         </div>
         {/* Map */}
