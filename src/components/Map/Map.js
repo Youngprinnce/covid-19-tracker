@@ -4,13 +4,12 @@ import "./Map.css";
 import { showDataOnMap } from "../../util";
 
 const Map = ({ countries, casesType, center, zoom }) => {
-  console.log(countries)
-    function ChangeView({ center, zoom }) {
-        const map = useMap();
-        map.setView(center, zoom);
-        return null;
-    }
 
+    const ChangeView = ({ center, zoom }) => {
+      const map = useMap();
+      map.setView(center, zoom);
+      return null;
+    }
 
     return (
         <MapContainer
